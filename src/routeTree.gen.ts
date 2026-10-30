@@ -10,33 +10,84 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CateringRouteImport } from './routes/catering'
+import { Route as ClubRouteImport } from './routes/club'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as MenuRouteImport } from './routes/menu'
+import { Route as PicnicRouteImport } from './routes/picnic'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CateringRoute = CateringRouteImport.update({
+  id: '/catering',
+  path: '/catering',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClubRoute = ClubRouteImport.update({
+  id: '/club',
+  path: '/club',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MenuRoute = MenuRouteImport.update({
+  id: '/menu',
+  path: '/menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PicnicRoute = PicnicRouteImport.update({
+  id: '/picnic',
+  path: '/picnic',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/catering': typeof CateringRoute
+  '/club': typeof ClubRoute
+  '/gallery': typeof GalleryRoute
+  '/menu': typeof MenuRoute
+  '/picnic': typeof PicnicRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/catering': typeof CateringRoute
+  '/club': typeof ClubRoute
+  '/gallery': typeof GalleryRoute
+  '/menu': typeof MenuRoute
+  '/picnic': typeof PicnicRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/catering': typeof CateringRoute
+  '/club': typeof ClubRoute
+  '/gallery': typeof GalleryRoute
+  '/menu': typeof MenuRoute
+  '/picnic': typeof PicnicRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/catering' | '/club' | '/gallery' | '/menu' | '/picnic'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/catering' | '/club' | '/gallery' | '/menu' | '/picnic'
+  id:
+    '__root__' | '/' | '/catering' | '/club' | '/gallery' | '/menu' | '/picnic'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CateringRoute: typeof CateringRoute
+  ClubRoute: typeof ClubRoute
+  GalleryRoute: typeof GalleryRoute
+  MenuRoute: typeof MenuRoute
+  PicnicRoute: typeof PicnicRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +99,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/catering': {
+      id: '/catering'
+      path: '/catering'
+      fullPath: '/catering'
+      preLoaderRoute: typeof CateringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/club': {
+      id: '/club'
+      path: '/club'
+      fullPath: '/club'
+      preLoaderRoute: typeof ClubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/menu': {
+      id: '/menu'
+      path: '/menu'
+      fullPath: '/menu'
+      preLoaderRoute: typeof MenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/picnic': {
+      id: '/picnic'
+      path: '/picnic'
+      fullPath: '/picnic'
+      preLoaderRoute: typeof PicnicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CateringRoute: CateringRoute,
+  ClubRoute: ClubRoute,
+  GalleryRoute: GalleryRoute,
+  MenuRoute: MenuRoute,
+  PicnicRoute: PicnicRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
