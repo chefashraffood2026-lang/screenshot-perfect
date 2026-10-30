@@ -52,7 +52,12 @@ const dict = {
 
 type Key = keyof typeof dict;
 
-const Ctx = createContext<{ lang: Lang; setLang: (l: Lang) => void; t: (k: Key) => string; pick: (v: L) => string }>({
+const Ctx = createContext<{
+  lang: Lang;
+  setLang: (l: Lang) => void;
+  t: (k: Key) => string;
+  pick: (v: L) => string;
+}>({
   lang: "he",
   setLang: () => {},
   t: (k) => dict[k].he,
@@ -74,7 +79,9 @@ export function LangProvider({ children }: { children: ReactNode }) {
     setLangState(l);
   };
   return (
-    <Ctx.Provider value={{ lang, setLang, t: (k) => dict[k][lang], pick: (v) => v[lang] }}>{children}</Ctx.Provider>
+    <Ctx.Provider value={{ lang, setLang, t: (k) => dict[k][lang], pick: (v) => v[lang] }}>
+      {children}
+    </Ctx.Provider>
   );
 }
 

@@ -22,7 +22,13 @@ function Gallery() {
       <PageHead title={t("nav_gallery")} image={img.beets} />
       <section className="mx-auto max-w-6xl columns-2 gap-3 px-4 py-10 md:columns-3">
         {photos.map((p, i) => (
-          <img key={p} src={p} alt={`${t("brand")} ${i + 1}`} loading="lazy" className="mb-3 w-full break-inside-avoid rounded-xl" />
+          <img
+            key={p}
+            src={p}
+            alt={`${t("brand")} ${i + 1}`}
+            loading="lazy"
+            className="mb-3 w-full break-inside-avoid rounded-xl"
+          />
         ))}
       </section>
     </>

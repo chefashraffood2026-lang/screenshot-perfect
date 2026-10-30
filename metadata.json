@@ -1,0 +1,6 @@
+{
+  "name": "Chef Ashraf Food",
+  "description": "קייטרינג ביתי, פיקניקים בשטח וערבי מועדון לחובבי בשר עם השף אשרף. Home catering, outdoor picnics, and carnivore club evenings with Chef Ashraf.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
