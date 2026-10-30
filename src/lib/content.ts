@@ -81,7 +81,7 @@ export const menu: MenuItem[] = [
     category: "meats",
     name: { he: "צלחת גריל מעורבת", ar: "صحن مشاوي مشكل" },
     desc: { he: "שיפוד קבב, פרגית, קציצה ופטריות", ar: "سيخ كباب، دجاج، كفتة وفطر" },
-    price: 95,
+    price: 105,
     size: { he: "מנה אישית", ar: "وجبة فردية" },
     image: img.grillPlate,
   },
