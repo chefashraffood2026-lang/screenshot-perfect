@@ -109,26 +109,69 @@ function Index() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="mb-6 text-3xl font-bold">{t("upcoming")}</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {events.map((e) => (
+        <div className="mb-6 flex items-end justify-between">
+          <div>
+            <h2 className="text-3xl font-bold">{t("nav_gallery")}</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {pick({
+                he: "מבחר תמונות אותנטיות מהאירועים, הסלטים והבשרים שלנו",
+                ar: "تشكيلة صور حقيقية من مناسباتنا ومأكولاتنا",
+              })}
+            </p>
+          </div>
+          <Link to="/gallery" className="text-sm font-semibold text-primary">
+            {t("see_all")} ←
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6">
+          {[
+            "/assets/food1.jpg",
+            "/assets/food7.jpg",
+            "/assets/food4.jpg",
+            "/assets/food2.jpg",
+            "/assets/food12.jpg",
+            "/assets/food3.jpg",
+          ].map((src, i) => (
             <Link
-              key={e.id}
-              to="/club"
-              className="flex gap-4 rounded-2xl border border-border bg-card p-3"
+              key={src}
+              to="/gallery"
+              className="group relative aspect-square overflow-hidden rounded-xl bg-card shadow-warm"
             >
-              <img src={e.image} alt="" className="size-24 rounded-xl object-cover" />
-              <div>
-                <p className="text-sm text-primary">
-                  {e.date} · {e.time}
-                </p>
-                <h3 className="text-lg font-bold">{pick(e.name)}</h3>
-                <p className="text-sm text-muted-foreground">
-                  {pick(e.location)} · {e.left > 0 ? `${e.left} ${t("seats_left")}` : t("full")}
-                </p>
-              </div>
+              <img
+                src={src}
+                alt={`${t("brand")} ${i + 1}`}
+                loading="lazy"
+                className="size-full object-cover transition duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-coal/20 opacity-0 transition group-hover:opacity-100" />
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-secondary/40 py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="mb-6 text-3xl font-bold">{t("upcoming")}</h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            {events.map((e) => (
+              <Link
+                key={e.id}
+                to="/club"
+                className="flex gap-4 rounded-2xl border border-border bg-card p-3"
+              >
+                <img src={e.image} alt="" className="size-24 rounded-xl object-cover" />
+                <div>
+                  <p className="text-sm text-primary">
+                    {e.date} · {e.time}
+                  </p>
+                  <h3 className="text-lg font-bold">{pick(e.name)}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {pick(e.location)} · {e.left > 0 ? `${e.left} ${t("seats_left")}` : t("full")}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </>

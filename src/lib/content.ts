@@ -1,35 +1,187 @@
-// Sample content — to be replaced by the business's approved Google Sheets data.
-import f1 from "@/assets/food1.jpg.asset.json";
-import f2 from "@/assets/food2.jpg.asset.json";
-import f3 from "@/assets/food3.jpg.asset.json";
-import f4 from "@/assets/food4.jpg.asset.json";
-import f5 from "@/assets/food5.jpg.asset.json";
-import f6 from "@/assets/food6.jpg.asset.json";
-import f7 from "@/assets/food7.jpg.asset.json";
-import f8 from "@/assets/food8.jpg.asset.json";
-import f9 from "@/assets/food9.jpg.asset.json";
-import f10 from "@/assets/food10.jpg.asset.json";
-import f11 from "@/assets/food11.jpg.asset.json";
-import f12 from "@/assets/food12.jpg.asset.json";
-import f13 from "@/assets/food13.jpg.asset.json";
-import f14 from "@/assets/food14.jpg.asset.json";
 import type { L } from "./i18n";
 
-export const photos = [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14].map(
-  (a) => a.url,
-);
+export const photos = [
+  "/assets/food1.jpg",
+  "/assets/food2.jpg",
+  "/assets/food3.jpg",
+  "/assets/food4.jpg",
+  "/assets/food5.jpg",
+  "/assets/food6.jpg",
+  "/assets/food7.jpg",
+  "/assets/food8.jpg",
+  "/assets/food9.jpg",
+  "/assets/food10.jpg",
+  "/assets/food11.jpg",
+  "/assets/food12.jpg",
+  "/assets/food13.jpg",
+  "/assets/food14.jpg",
+];
+
 export const img = {
-  mezzeTable: f2.url,
-  dessert: f3.url,
-  cabbage: f4.url,
-  greens: f6.url,
-  glazed: f7.url,
-  grillPlate: f12.url,
-  saladBowl: f9.url,
-  beets: f10.url,
-  longTable: f14.url,
-  plates: f13.url,
+  food1: "/assets/food1.jpg",
+  mezzeTable: "/assets/food2.jpg",
+  dessert: "/assets/food3.jpg",
+  cabbage: "/assets/food4.jpg",
+  food5: "/assets/food5.jpg",
+  greens: "/assets/food6.jpg",
+  glazed: "/assets/food7.jpg",
+  food8: "/assets/food8.jpg",
+  saladBowl: "/assets/food9.jpg",
+  beets: "/assets/food10.jpg",
+  food11: "/assets/food11.jpg",
+  grillPlate: "/assets/food12.jpg",
+  plates: "/assets/food13.jpg",
+  longTable: "/assets/food14.jpg",
 };
+
+export type GalleryCategory = "all" | "meat" | "salads" | "events" | "dessert";
+
+export type GalleryItem = {
+  id: string;
+  src: string;
+  title: L;
+  desc: L;
+  category: GalleryCategory;
+};
+
+export const galleryCategories: { id: GalleryCategory; name: L }[] = [
+  { id: "all", name: { he: "הכל (14 תמונות)", ar: "الكل (14 صورة)" } },
+  { id: "meat", name: { he: "בשרים וגריל", ar: "لحوم ومشاوي" } },
+  { id: "salads", name: { he: "סלטים ומאזטים", ar: "سلطات ومقبلات" } },
+  { id: "events", name: { he: "אירוח ופיקניק", ar: "ضيافة ونزهات" } },
+  { id: "dessert", name: { he: "קינוחים", ar: "حلويات" } },
+];
+
+export const galleryItems: GalleryItem[] = [
+  {
+    id: "food1",
+    src: "/assets/food1.jpg",
+    title: { he: "מגש אירוח עשיר", ar: "صينية ضيافة غنية" },
+    desc: {
+      he: "נתחי בשר מובחרים, סלטים טריים ומטבלים",
+      ar: "قطع لحم مختارة، سلطات طازجة وتغميسات",
+    },
+    category: "meat",
+  },
+  {
+    id: "food2",
+    src: "/assets/food2.jpg",
+    title: { he: "שולחן מאזטים ביתי", ar: "طاولة مقبلات بيتية" },
+    desc: {
+      he: "מבחר סלטים ומאזטים מסורתיים מהמטבח השאמי",
+      ar: "تشكيلة سلطات ومقبلات شامية تقليدية",
+    },
+    category: "salads",
+  },
+  {
+    id: "food3",
+    src: "/assets/food3.jpg",
+    title: { he: "שולחן מתוקים וקינוחים", ar: "طاولة حلويات وفاكهة" },
+    desc: {
+      he: "מגוון קינוחי שף ופירות העונה המעוצבים באהבה",
+      ar: "مجموعة حلويات شيف وفواكه موسمية",
+    },
+    category: "dessert",
+  },
+  {
+    id: "food4",
+    src: "/assets/food4.jpg",
+    title: { he: "פיקניק שף בטבע", ar: "نزهة شيف في الطبيعة" },
+    desc: {
+      he: "חוויית אוכל באוויר הפתוח עם ירקות טריים ובשרים",
+      ar: "تجربة طعام في الهواء الطلق مع خضار ولحوم",
+    },
+    category: "events",
+  },
+  {
+    id: "food5",
+    src: "/assets/food5.jpg",
+    title: { he: "מאפים ופוקאצ'ות טריות", ar: "معجنات وفوكاشيا طازجة" },
+    desc: {
+      he: "לחמים חמים מהטאבון עם שמן זית ועשבי תיבול",
+      ar: "خبز ساخن من الطابون مع زيت زيتון وأعشاب",
+    },
+    category: "events",
+  },
+  {
+    id: "food6",
+    src: "/assets/food6.jpg",
+    title: { he: "סלט ירוקים וגרעינים קלויים", ar: "سلطة خضراء وبذور محمصة" },
+    desc: { he: "עשבי תיבול רעננים, ויניגרט לימון ושמן זית", ar: "أعشاب طازجة، ليمون وزيت زيتون" },
+    category: "salads",
+  },
+  {
+    id: "food7",
+    src: "/assets/food7.jpg",
+    title: { he: "אסאדו מזוגג ובשר מעושן", ar: "أسادو مزجج ولحم مدخن" },
+    desc: {
+      he: "צלייה איטית באש פתוחה עם זיגוג מתקתק ושומשום",
+      ar: "شواء بطيء على النار مع سمسم وتزجيج خاص",
+    },
+    category: "meat",
+  },
+  {
+    id: "food8",
+    src: "/assets/food8.jpg",
+    title: { he: "שיפודים וקבב פרימיום", ar: "أسياخ وكباب فاخر" },
+    desc: {
+      he: "בשר טרי מתובל במדויק וצלוי על גחלים לוחשות",
+      ar: "لحم طازج متبل بدقة ومشوي على الفحم",
+    },
+    category: "meat",
+  },
+  {
+    id: "food9",
+    src: "/assets/food9.jpg",
+    title: { he: "סלט כרוב וירקות שף", ar: "سلطة ملفوف وخضار شيف" },
+    desc: { he: "הגשה מיוחדת בקערת כרוב פריך עם עשבי בר", ar: "تقديم مميز في وعاء ملفوف مقرمش" },
+    category: "salads",
+  },
+  {
+    id: "food10",
+    src: "/assets/food10.jpg",
+    title: { he: "סלטי שורש וסלק מובחר", ar: "سلطة شمندر وخضار جذرية" },
+    desc: { he: "סלק חי וגזר מגוררים בתיבול שאמי מסורתי", ar: "شمندر وجزر متبل بنكهات أصيلة" },
+    category: "salads",
+  },
+  {
+    id: "food11",
+    src: "/assets/food11.jpg",
+    title: { he: "נתחי בשר למועדון הקרניבורים", ar: "قطع لحم لنادي اللحوم" },
+    desc: {
+      he: "נתחים מיושנים ועשירים בטעמים לאוהבי בשר אמיתיים",
+      ar: "لحوم معتقة غنية بالنكهات لعشاق اللحم",
+    },
+    category: "meat",
+  },
+  {
+    id: "food12",
+    src: "/assets/food12.jpg",
+    title: { he: "צלחת גריל חגיגית", ar: "صحن مشاوي احتفالي" },
+    desc: { he: "מבחר נתחי בשר וירקות צלויים למופת", ar: "تشكيلة لحوم وخضار مشوية باحترافية" },
+    category: "meat",
+  },
+  {
+    id: "food13",
+    src: "/assets/food13.jpg",
+    title: { he: "עריכת שולחנות והגשה אישית", ar: "ترتيب موائد وتقديم شخصي" },
+    desc: {
+      he: "עיצוב שולחנות מלא סטייל ודיוק לכל אירוע",
+      ar: "تصميم طاولات مميز ואניק לכל אירוע",
+    },
+    category: "events",
+  },
+  {
+    id: "food14",
+    src: "/assets/food14.jpg",
+    title: { he: "שולחן אירוח ארוך", ar: "مائدة طعام طويلة للمناسبات" },
+    desc: {
+      he: "חוויית קייטרינג מלאה לאירועים גדולים ומשפחתיים",
+      ar: "تجربة ضيافة كاملة للمناسبات الكبيرة",
+    },
+    category: "events",
+  },
+];
 
 export type Category = "starters" | "meats" | "sides" | "desserts" | "packages";
 export const categories: { id: Category; name: L }[] = [
